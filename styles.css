@@ -456,3 +456,41 @@ html, body {
     margin: 0 0 0px 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.debug-input {
+    padding: 10px 20px;
+    font-size: 18px;
+    min-width: 80px;
+    width: 100px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid #55679C;
+    color: #55679C;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    -moz-appearance: textfield;
+}
+
+.debug-input::-webkit-outer-spin-button,
+.debug-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.debug-input:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.debug-input:focus {
+    border-color: #55679C;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 8px rgba(85, 103, 156, 0.2);
+}
+
+.debug-input::placeholder {
+    color: #55679C;
+    opacity: 0.7;
+}

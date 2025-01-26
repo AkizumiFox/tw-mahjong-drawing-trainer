@@ -1,5 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
     spawnDice();
+
+    // Initialize keyboard command detection
+    let typedKeys = '';
+    const debugCommand = 'setdice';
+    
+    document.addEventListener('keydown', function(event) {
+        // Only track alphabetic keys
+        if (/^[a-zA-Z]$/.test(event.key)) {
+            typedKeys += event.key.toLowerCase();
+            
+            // Keep only the last N characters where N is the length of the command
+            if (typedKeys.length > debugCommand.length) {
+                typedKeys = typedKeys.slice(-debugCommand.length);
+            }
+            
+            // Check if the command has been typed
+            if (typedKeys === debugCommand) {
+                document.getElementById('debugControls').style.display = 'block';
+                typedKeys = ''; // Reset the buffer
+            }
+        }
+    });
 });
 
 function toggleTile(elem) {

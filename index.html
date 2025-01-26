@@ -103,8 +103,12 @@
         <button class="clear-button" onclick="clearAllTiles()">清除所選</button>
       </div>
       <button class="check-button" onclick="checkAnswer()">檢查答案</button>
-      <input type="number" id="debugDiceTotal" min="3" max="18" placeholder="3-18">
-      <button onclick="debugSetDice()">Set Dice</button>
+      <div id="debugControls" style="display: none;">
+        <div class="button-row">
+          <input type="number" class="debug-input" id="debugDiceTotal" min="3" max="18" placeholder="3-18">
+          <button class="roll-button" onclick="debugSetDice()">Set Dice</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
