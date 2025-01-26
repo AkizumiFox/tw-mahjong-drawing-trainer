@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>麻將抓牌練習工具</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="table">
+  <div class="wind-label top-label">西</div>
+  <div class="wind-label bottom-label">東</div>
+  <div class="wind-label left-label">南</div>
+  <div class="wind-label right-label">北</div>
+  
+  <div class="row top-row">
+    <div class="tile W t1" onclick="toggleTile(this)"></div>
+    <div class="tile W t2" onclick="toggleTile(this)"></div>
+    <div class="tile W t3" onclick="toggleTile(this)"></div>
+    <div class="tile W t4" onclick="toggleTile(this)"></div>
+    <div class="tile W t5" onclick="toggleTile(this)"></div>
+    <div class="tile W t6" onclick="toggleTile(this)"></div>
+    <div class="tile W t7" onclick="toggleTile(this)"></div>
+    <div class="tile W t8" onclick="toggleTile(this)"></div>
+    <div class="tile W t9" onclick="toggleTile(this)"></div>
+    <div class="tile W t10" onclick="toggleTile(this)"></div>
+    <div class="tile W t11" onclick="toggleTile(this)"></div>
+    <div class="tile W t12" onclick="toggleTile(this)"></div>
+    <div class="tile W t13" onclick="toggleTile(this)"></div>
+    <div class="tile W t14" onclick="toggleTile(this)"></div>
+    <div class="tile W t15" onclick="toggleTile(this)"></div>
+    <div class="tile W t16" onclick="toggleTile(this)"></div>
+    <div class="tile W t17" onclick="toggleTile(this)"></div>
+  </div>
+
+  <div class="row right-row">
+    <div class="tile N t1" onclick="toggleTile(this)"></div>
+    <div class="tile N t2" onclick="toggleTile(this)"></div>
+    <div class="tile N t3" onclick="toggleTile(this)"></div>
+    <div class="tile N t4" onclick="toggleTile(this)"></div>
+    <div class="tile N t5" onclick="toggleTile(this)"></div>
+    <div class="tile N t6" onclick="toggleTile(this)"></div>
+    <div class="tile N t7" onclick="toggleTile(this)"></div>
+    <div class="tile N t8" onclick="toggleTile(this)"></div>
+    <div class="tile N t9" onclick="toggleTile(this)"></div>
+    <div class="tile N t10" onclick="toggleTile(this)"></div>
+    <div class="tile N t11" onclick="toggleTile(this)"></div>
+    <div class="tile N t12" onclick="toggleTile(this)"></div>
+    <div class="tile N t13" onclick="toggleTile(this)"></div>
+    <div class="tile N t14" onclick="toggleTile(this)"></div>
+    <div class="tile N t15" onclick="toggleTile(this)"></div>
+    <div class="tile N t16" onclick="toggleTile(this)"></div>
+    <div class="tile N t17" onclick="toggleTile(this)"></div>
+  </div>
+
+  <div class="row bottom-row">
+    <div class="tile E t1" onclick="toggleTile(this)"></div>
+    <div class="tile E t2" onclick="toggleTile(this)"></div>
+    <div class="tile E t3" onclick="toggleTile(this)"></div>
+    <div class="tile E t4" onclick="toggleTile(this)"></div>
+    <div class="tile E t5" onclick="toggleTile(this)"></div>
+    <div class="tile E t6" onclick="toggleTile(this)"></div>
+    <div class="tile E t7" onclick="toggleTile(this)"></div>
+    <div class="tile E t8" onclick="toggleTile(this)"></div>
+    <div class="tile E t9" onclick="toggleTile(this)"></div>
+    <div class="tile E t10" onclick="toggleTile(this)"></div>
+    <div class="tile E t11" onclick="toggleTile(this)"></div>
+    <div class="tile E t12" onclick="toggleTile(this)"></div>
+    <div class="tile E t13" onclick="toggleTile(this)"></div>
+    <div class="tile E t14" onclick="toggleTile(this)"></div>
+    <div class="tile E t15" onclick="toggleTile(this)"></div>
+    <div class="tile E t16" onclick="toggleTile(this)"></div>
+    <div class="tile E t17" onclick="toggleTile(this)"></div>
+  </div>
+
+  <div class="row left-row">
+    <div class="tile S t1" onclick="toggleTile(this)"></div>
+    <div class="tile S t2" onclick="toggleTile(this)"></div>
+    <div class="tile S t3" onclick="toggleTile(this)"></div>
+    <div class="tile S t4" onclick="toggleTile(this)"></div>
+    <div class="tile S t5" onclick="toggleTile(this)"></div>
+    <div class="tile S t6" onclick="toggleTile(this)"></div>
+    <div class="tile S t7" onclick="toggleTile(this)"></div>
+    <div class="tile S t8" onclick="toggleTile(this)"></div>
+    <div class="tile S t9" onclick="toggleTile(this)"></div>
+    <div class="tile S t10" onclick="toggleTile(this)"></div>
+    <div class="tile S t11" onclick="toggleTile(this)"></div>
+    <div class="tile S t12" onclick="toggleTile(this)"></div>
+    <div class="tile S t13" onclick="toggleTile(this)"></div>
+    <div class="tile S t14" onclick="toggleTile(this)"></div>
+    <div class="tile S t15" onclick="toggleTile(this)"></div>
+    <div class="tile S t16" onclick="toggleTile(this)"></div>
+    <div class="tile S t17" onclick="toggleTile(this)"></div>
+  </div>
+
+  <div class="center-container">
+    <div class="dice-container" id="diceContainer"></div>
+    <div class="button-container">
+      <div class="button-row">
+        <button class="roll-button" onclick="spawnDice()">投擲骰子</button>
+        <button class="clear-button" onclick="clearAllTiles()">清除所選</button>
+      </div>
+      <button class="check-button" onclick="checkAnswer()">檢查答案</button>
+      <!-- <input type="number" id="debugDiceTotal" min="3" max="18" placeholder="3-18">
+      <button onclick="debugSetDice()">Set Dice</button> -->
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<div id="feedbackOverlay" class="feedback-overlay"></div>
+
+<button id="helpButton" class="help-button" onclick="toggleModal()">?</button>
+
+<div id="modalOverlay" class="modal-overlay">
+    <div id="helpModal" class="modal">
+        <div class="modal-header">
+            <h2 class="modal-title">使用說明</h2>
+            <button class="close-btn" onclick="toggleModal()">&times;</button>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" data-tab="rules">規則</div>
+            <div class="tab" data-tab="about">關於</div>
+        </div>
+
+        <div id="rules" class="tab-content active">
+            <h3 class="first-header">介紹</h3>
+            <!-- <div class="centered-content"> -->
+                <p>這是台灣麻將抓牌練習的工具，你可以依照骰子的點數來練習抓牌。</p>
+            <!-- </div> -->
+
+			<h3>怎麼抓牌？</h3>
+			<p>
+				請參考
+			</p>
+
+            <h3>操作方式</h3>
+            <ul>
+                <li>按「投擲骰子」</li>
+                <li>依照骰子的點數，點擊你身為莊家該抓的兩噸牌</li>
+                <li>點擊「檢查答案」</li>
+                <li>⭕️ 表示正確，自動進入下一題</li>
+                <li>❌ 表示錯誤，可以繼續嘗試</li>
+            </ul>
+        </div>
+
+        <div id="about" class="tab-content">
+            <h3 class="first-header">作者</h3>
+            <div class="about-content">
+                <p class="about-text">
+                    Make with paws 🐾 by Akizumi 🦊
+                </p>
+                <div class="about-links">
+                    <a href="https://github.com/AaronLin1229" class="about-link" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://aaronlin1229.github.io/" class="about-link" target="_blank">
+                        <i class="fas fa-globe"></i> Personal Website
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <div class="modal-footer-right">
+                <button class="btn btn-save" onclick="toggleModal()">關閉</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
