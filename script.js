@@ -119,11 +119,12 @@ function highlightTiles(wind, reserved, start) {
     const windOrder = ['W', 'N', 'E', 'S'];
     const getNextWind = (current) => {
         const idx = windOrder.indexOf(current);
-        return windOrder[(idx + 1) % 4];
+        const nextIdx = (idx - 1 + 4) % 4;  // Go counterclockwise
+        return windOrder[nextIdx];
     };
     
     const getNextPosition = (pos, wind) => {
-        if (pos >= 16) {
+        if (pos >= 17) {
             return {
                 wind: getNextWind(wind),
                 pos: 0
@@ -131,10 +132,11 @@ function highlightTiles(wind, reserved, start) {
         }
         return {
             wind: wind,
-            pos: pos + 1
+            pos: pos
         };
     };
     
+    // Handle wrapping around to next wall
     while (currentPos >= 17) {
         currentWind = getNextWind(currentWind);
         currentPos -= 17;
@@ -147,8 +149,17 @@ function highlightTiles(wind, reserved, start) {
     correctTiles.push(`.tile.${currentWind}.t${currentPos + 1}`);
     
     // Second tile selector
-    const nextPos = getNextPosition(currentPos, currentWind);
-    correctTiles.push(`.tile.${nextPos.wind}.t${nextPos.pos + 1}`);
+    let nextPos = currentPos + 1;
+    let nextWind = currentWind;
+    
+    if (nextPos >= 17) {
+        nextWind = getNextWind(currentWind);
+        nextPos = 1;
+    } else {
+        nextPos++;
+    }
+    
+    correctTiles.push(`.tile.${nextWind}.t${nextPos}`);
     
     // Sort to make comparison order-independent
     correctTiles.sort();
