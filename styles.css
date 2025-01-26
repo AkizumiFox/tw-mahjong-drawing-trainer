@@ -494,3 +494,94 @@ html, body {
     color: #55679C;
     opacity: 0.7;
 }
+
+@media screen and (max-width: 768px) {
+    .tile {
+        width: 20px;
+        height: 30px;
+    }
+
+    .row {
+        gap: 2px;
+    }
+
+    .top-row {
+        top: 5%;
+    }
+
+    .bottom-row {
+        bottom: 5%;
+    }
+
+    .left-row {
+        left: 5%;
+    }
+
+    .right-row {
+        right: 5%;
+    }
+
+    .wind-label {
+        font-size: 18px;
+    }
+
+    .main-title {
+        font-size: 24px;
+    }
+
+    .button-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .roll-button, .clear-button, .check-button, .help-button, .btn-save {
+        font-size: 16px;
+        padding: 8px 16px;
+        min-width: 100px;
+    }
+
+    .debug-input {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    .dice {
+        width: 30px;
+        height: 30px;
+    }
+
+    .pip {
+        width: 5px;
+        height: 5px;
+    }
+
+    .center-container {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .tile {
+        width: 15px;
+        height: 22px;
+    }
+
+    .wind-label {
+        font-size: 16px;
+    }
+
+    .main-title {
+        font-size: 20px;
+    }
+
+    .dice {
+        width: 25px;
+        height: 25px;
+    }
+
+    .pip {
+        width: 4px;
+        height: 4px;
+    }
+}
