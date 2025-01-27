@@ -596,7 +596,7 @@ html, body {
     }
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 480px) {
     .tile {
         width: 15px;
         height: 22px;
@@ -650,5 +650,65 @@ html, body {
     .pip {
         width: 4px;
         height: 4px;
+    }
+}
+
+@media screen and (max-width: 480px) and (orientation: portrait) {
+    .table {
+        transform: scale(0.75);
+        transform-origin: center 30%;
+        padding: 0;
+    }
+
+    .row {
+        z-index: 20;  /* Make tiles appear above center container */
+        gap: 3px;  /* Slightly increased gap between tiles */
+    }
+
+    .tile {
+        width: 22px;  /* Increased from 18px */
+        height: 33px;  /* Increased from 27px */
+    }
+
+    .top-row {
+        transform: translateX(-50%) translateY(-220px) rotate(-10deg);
+    }
+
+    .bottom-row {
+        transform: translateX(-50%) translateY(220px) rotate(170deg);
+    }
+
+    .left-row {
+        transform: translateX(-220px) translateY(-50%) rotate(-100deg);
+    }
+
+    .right-row {
+        transform: translateX(220px) translateY(-50%) rotate(80deg);
+    }
+
+    .center-container {
+        position: fixed;
+        top: 33%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 300px;
+        z-index: 10;
+        background-color: rgba(120, 198, 120, 0.9);
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    /* Very small phones */
+    @media screen and (max-height: 600px) {
+        .table {
+            transform: scale(0.65);
+            transform-origin: center 25%;
+        }
+
+        .center-container {
+            bottom: 330px;
+            transform: translateX(-50%) scale(0.9);
+        }
     }
 }
