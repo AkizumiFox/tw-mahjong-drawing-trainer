@@ -662,11 +662,11 @@ html, body {
     }
 
     .top-row {
-        transform: translateX(-40%) translateY(-200px) rotate(-10deg);
+        transform: translateX(-45%) translateY(-200px) rotate(-10deg);
     }
 
     .bottom-row {
-        transform: translateX(-60%) translateY(200px) rotate(170deg);
+        transform: translateX(-55%) translateY(200px) rotate(170deg);
     }
 
     .left-row {

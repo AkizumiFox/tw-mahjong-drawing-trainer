@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Check if user is on mobile
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        alert('建議使用直向模式以獲得最佳體驗！');
+    }
+
     // Set initial button text
     const button = document.getElementById('ruleToggle');
     button.textContent = '北部牌（18張）';
