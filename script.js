@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Set initial button text
+    const button = document.getElementById('ruleToggle');
+    button.textContent = '北部牌（18張）';
+    
+    // Show 18th tiles initially (Northern rules default)
+    const lastTiles = document.querySelectorAll('.tile.t18');
+    lastTiles.forEach(tile => {
+        tile.style.display = 'block';
+    });
+    
     spawnDice();
 
     // Initialize keyboard command detection
@@ -145,23 +155,12 @@ function highlightTiles(wind, reserved, start) {
         return windOrder[nextIdx];
     };
     
-    const getNextPosition = (pos, wind) => {
-        if (pos >= 17) {
-            return {
-                wind: getNextWind(wind),
-                pos: 0
-            };
-        }
-        return {
-            wind: wind,
-            pos: pos
-        };
-    };
+    const tilesPerRow = isNorthernRules ? TILES_PER_ROW.NORTHERN : TILES_PER_ROW.SOUTHERN;
     
     // Handle wrapping around to next wall
-    while (currentPos >= 17) {
+    while (currentPos >= tilesPerRow) {
         currentWind = getNextWind(currentWind);
-        currentPos -= 17;
+        currentPos -= tilesPerRow;
     }
     
     // Store correct tile selectors
@@ -174,7 +173,7 @@ function highlightTiles(wind, reserved, start) {
     let nextPos = currentPos + 1;
     let nextWind = currentWind;
     
-    if (nextPos >= 17) {
+    if (nextPos >= tilesPerRow) {
         nextWind = getNextWind(currentWind);
         nextPos = 1;
     } else {
@@ -283,3 +282,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Add at the top with other global variables
+let isNorthernRules = true;  // Default to Northern rules (18 tiles)
+const TILES_PER_ROW = {
+    NORTHERN: 18,
+    SOUTHERN: 17
+};
+
+// Add the toggle function
+function toggleRules() {
+    isNorthernRules = !isNorthernRules;
+    const button = document.getElementById('ruleToggle');
+    button.textContent = isNorthernRules ? '北部牌（18張）' : '南部牌（17張）';
+    
+    // Update visibility of the 18th tile in each row
+    const lastTiles = document.querySelectorAll('.tile.t18');
+    lastTiles.forEach(tile => {
+        tile.style.display = isNorthernRules ? 'block' : 'none';
+    });
+    
+    // Clear selections and respawn dice
+    clearAllTiles();
+    spawnDice();
+}
