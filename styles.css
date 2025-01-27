@@ -655,60 +655,73 @@ html, body {
 
 @media screen and (max-width: 480px) and (orientation: portrait) {
     .table {
-        transform: scale(0.75);
-        transform-origin: center 30%;
-        padding: 0;
-    }
-
-    .row {
-        z-index: 20;  /* Make tiles appear above center container */
-        gap: 3px;  /* Slightly increased gap between tiles */
-    }
-
-    .tile {
-        width: 22px;  /* Increased from 18px */
-        height: 33px;  /* Increased from 27px */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.0);
     }
 
     .top-row {
-        transform: translateX(-50%) translateY(-220px) rotate(-10deg);
+        transform: translateX(-40%) translateY(-200px) rotate(-10deg);
     }
 
     .bottom-row {
-        transform: translateX(-50%) translateY(220px) rotate(170deg);
+        transform: translateX(-60%) translateY(200px) rotate(170deg);
     }
 
     .left-row {
-        transform: translateX(-220px) translateY(-50%) rotate(-100deg);
+        transform: translateX(-150px) translateY(-50%) rotate(-100deg);
     }
 
     .right-row {
-        transform: translateX(220px) translateY(-50%) rotate(80deg);
+        transform: translateX(150px) translateY(-50%) rotate(80deg);
+    }
+
+    .tile {
+        width: 18px;
+        height: 27px;
     }
 
     .center-container {
-        position: fixed;
-        top: 33%;
+    }
+}
+
+/* Landscape mode */
+@media screen and (max-width: 900px) and (orientation: landscape) {
+    .table {
+        position: absolute;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        max-width: 300px;
-        z-index: 10;
-        background-color: rgba(120, 198, 120, 0.9);
-        padding: 10px;
-        border-radius: 10px;
+        transform: translate(-50%, -50%) scale(0.78);
+        transform-origin: center center;
+        padding: 40px 10px;
     }
 
-    /* Very small phones */
-    @media screen and (max-height: 600px) {
-        .table {
-            transform: scale(0.65);
-            transform-origin: center 25%;
-        }
+    .tile {
+        width: 20px;
+        height: 30px;
+    }
 
-        .center-container {
-            bottom: 330px;
-            transform: translateX(-50%) scale(0.9);
-        }
+    .button-row {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .main-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Very small phones */
+@media screen and (max-height: 600px) and (orientation: portrait) {
+    .table {
+        transform: scale(0.65);
+        transform-origin: center 30%;
+    }
+
+    .center-container {
+        bottom: 330px;
+        transform: translateX(-50%) scale(0.9);
     }
 }
